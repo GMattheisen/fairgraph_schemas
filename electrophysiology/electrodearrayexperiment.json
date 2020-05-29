@@ -1,0 +1,61 @@
+{
+    "@context": [
+        "https://nexus.humanbrainproject.org/v0/contexts/neurosciencegraph/core/schema/v0.1.0",
+        {
+            "this": "https://nexus.humanbrainproject.org/v0/schemas/neuralactivity/electrophysiology/electrodearrayexperiment/v0.1.0/shapes/"
+        },
+        "https://nexus.humanbrainproject.org/v0/contexts/nexus/core/resource/v0.3.0"
+    ],
+    "@id": "https://nexus.humanbrainproject.org/v0/schemas/neuralactivity/electrophysiology/electrodearrayexperiment/v0.1.0",
+    "@type": "nxv:Schema",
+    "imports": [
+        "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/activity/v0.1.0",
+        "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/typedlabeledontologyterm/v0.1.0"
+    ],
+    "shapes": [
+        {
+            "@id": "this:ElectrodeArrayExperimentShape",
+            "@type": "sh:NodeShape",
+            "and": [
+                {
+                    "node": "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/activity/v0.1.0/shapes/ActivityShape"
+                },
+                {
+                    "property": [
+                        {
+                            "class": "nsg:Device",
+                            "description": "Device used to record activity",
+                            "path": "prov:used"
+                        },
+                        {
+                            "description": "Task provided to Subject during study",
+                            "name": "Task",
+                            "path": "nsg:Task"
+                        },
+                        {
+                            "class": "nsg:Sensor",
+                            "name": "Sensors",
+                            "node": "https://nexus.humanbrainproject.org/v0/data/neuralactivity/electrophysiology/Sensor/v0.1.0/shapes/SensorShape",
+                            "path": "schema:sensors"
+                        },
+                        {
+                            "class": "nsg:Sensor",
+                            "name": "Digitized head points",
+                            "node": "https://nexus.humanbrainproject.org/v0/data/neuralactivity/electrophysiology/Sensor/v0.1.0/shapes/SensorShape",
+                            "path": "schema:digitizedHeadPoints"
+                        },
+                        {
+                            "class": "nsg:Sensor",
+                            "name": "Head localization coils",
+                            "node": "https://nexus.humanbrainproject.org/v0/data/neuralactivity/electrophysiology/Sensor/v0.1.0/shapes/SensorShape",
+                            "path": "schema:headLocalizationCoils"
+                        }
+                    ]
+                }
+            ],
+            "label": "Electrodearray experiment experiment shape definition",
+            "nodeKind": "sh:BlankNodeOrIRI",
+            "targetClass": "nsg:ElectrodeArrayExperiment"
+        }
+    ]
+}

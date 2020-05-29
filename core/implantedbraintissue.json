@@ -1,0 +1,25 @@
+{
+    "@context": [
+        "https://nexus.humanbrainproject.org/v0/contexts/neurosciencegraph/core/schema/v0.1.0",
+        {
+            "this": "https://nexus.humanbrainproject.org/v0/schemas/neuralactivity/core/implantedbraintissue/v0.1.1/shapes/"
+        },
+        "https://nexus.humanbrainproject.org/v0/contexts/nexus/core/resource/v0.3.0"
+    ],
+    "@id": "https://nexus.humanbrainproject.org/v0/schemas/neuralactivity/core/implantedbraintissue/v0.1.0",
+    "@type": "nxv:Schema",
+    "imports": [
+        "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/core/entity/v0.1.0"
+    ],
+    "prov:wasDerivedFrom": "https://github.com/INCF/neuroshapes/blob/v0.3.15/modules/core/src/main/resources/schemas/neurosciencegraph/core/slice/v0.1.0.json",
+    "shapes": [
+        {
+            "@id": "this:ImplantedBrainTissueShape",
+            "@type": "sh:NodeShape",
+            "label": "Implanted brain tissue shape definition",
+            "node": "https://neuroshapes.org/commons/entity/shapes/EntityShape",
+            "nodeKind": "sh:BlankNodeOrIRI",
+            "targetClass": "nsg:ImplantedBrainTissue"
+        }
+    ]
+}
