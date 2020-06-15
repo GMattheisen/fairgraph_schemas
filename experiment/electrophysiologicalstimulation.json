@@ -1,0 +1,49 @@
+{
+    "@context": [
+        "https://nexus-int.humanbrainproject.org/v0/contexts/neurosciencegraph/core/schema/v0.1.0",
+        {
+            "this": "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/optophysiology/electrophysiologicalstimulation/v0.5.0/shapes/"
+        },
+        "https://nexus-int.humanbrainproject.org/v0/contexts/nexus/core/resource/v0.3.0"
+    ],
+    "@id": "https://nexus-int.humanbrainproject.org/v0/schemas/neuralactivity/optophysiology/electrophysiologicalstimulation/v0.5.0",
+    "@type": "nxv:Schema",
+    "imports": [
+        "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/entity/v0.1.0",
+        "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/quantitativevalue/v0.1.0"
+    ],
+    "shapes": [
+        {
+            "@id": "this:ElectrophysiologicalStimulationShape",
+            "@type": "sh:NodeShape",
+            "and": [
+                {
+                    "node": "https://neuroshapes.org/commons/activity/shapes/ActivityShape"
+                },
+                {
+                    "property": [
+                        {
+                            "class": "nsg:ElectrophysiologicalStimulus",
+                            "description": "Electrophysiological stimulus used for electrophysiological stimulation",
+                            "minCount": 1,
+                            "name": "Electrophysiological Stimulus",
+                            "node": "https://nexus-int.humanbrainproject.org/v0/schemas/neuralactivity/optophysiology/electrophysiologicalstimulus/v0.1.0/shapes/",
+                            "path": "prov:used"
+                        },
+                        {
+                            "description": "The shape of the stimulus",
+                            "maxCount": 1,
+                            "name": "Stimulus",
+                            "node": "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/electrophysiology/stimulusexperiment/v1.0.0/shapes/",
+                            "path": "nsg:stimulus"
+                        }
+                    ]
+                }
+            ],
+            "description": "Electrophysiological stimulation",
+            "label": "Electrophysiological stimulation shape definition",
+            "nodeKind": "sh:BlankNodeOrIRI",
+            "targetClass": "nsg:ElectrophysiologicalStimulation"
+        }
+    ]
+}

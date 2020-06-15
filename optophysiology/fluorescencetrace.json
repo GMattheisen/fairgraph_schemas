@@ -1,16 +1,16 @@
 {
     "@context": [
-        "https://nexus.humanbrainproject.org/v0/contexts/neurosciencegraph/core/schema/v0.1.0",
+        "https://nexus-int.humanbrainproject.org/v0/contexts/neurosciencegraph/core/schema/v0.1.0",
         {
-            "this": "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/optophysiology/fluorescencetrace/v0.1.0/shapes/"
+            "this": "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/optophysiology/fluorescencetrace/v0.3.0/shapes/"
         },
-        "https://nexus.humanbrainproject.org/v0/contexts/nexus/core/resource/v0.3.0"
+        "https://nexus-int.humanbrainproject.org/v0/contexts/nexus/core/resource/v0.3.0"
     ],
-    "@id": "https://nexus.humanbrainproject.org/v0/schemas/neuralactivity/optophysiology/fluorescencetrace/v0.1.0",
+    "@id": "https://nexus-int.humanbrainproject.org/v0/schemas/neuralactivity/optophysiology/fluorescencetrace/v0.3.0",
     "@type": "nxv:Schema",
     "imports": [
-        "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/entity/v0.1.0",
-        "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/quantitativevalue/v0.1.0"
+        "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/entity/v0.1.0",
+        "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/quantitativevalue/v0.1.0"
     ],
     "shapes": [
         {
@@ -18,7 +18,7 @@
             "@type": "sh:NodeShape",
             "and": [
                 {
-                    "node": "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/entity/v0.1.0/shapes/EntityShape"
+                    "node": "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/entity/v0.1.0/shapes/EntityShape"
                 },
                 {
                     "property": [
@@ -26,7 +26,7 @@
                             "description": "Time step (inverted sampling frequency) of data",
                             "maxCount": 1,
                             "name": "Time step",
-                            "node": "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/quantitativevalue/v0.1.2/shapes/QuantitativeValueShape",
+                            "node": "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/quantitativevalue/v0.1.2/shapes/QuantitativeValueShape",
                             "path": "nsg:timeStep"
                         }
                     ]

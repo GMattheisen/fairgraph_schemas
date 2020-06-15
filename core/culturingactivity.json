@@ -1,0 +1,89 @@
+{
+    "@context": [
+        "https://nexus-int.humanbrainproject.org/v0/contexts/neurosciencegraph/core/schema/v0.1.0",
+        {
+            "this": "https://nexus-int.humanbrainproject.org/v0/schemas/neuralactivity/experiment/culturingactivity/v0.2.0/shapes/"
+        },
+        "https://nexus-int.humanbrainproject.org/v0/contexts/nexus/core/resource/v0.3.0"
+    ],
+    "@id": "https://nexus-int.humanbrainproject.org/v0/schemas/neuralactivity/experiment/culturingactivity/v0.2.0",
+    "@type": "nxv:Schema",
+    "imports": [
+        "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/activity/v0.1.0",
+        "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/quantitativevalue/v0.1.0",
+        "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/brainlocation/v0.1.0"
+    ],
+    "shapes": [
+        {
+            "@id": "this:CulturingActivityShape",
+            "@type": "sh:NodeShape",
+            "and": [
+                {
+                    "node": "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/activity/v0.1.0/shapes/ActivityShape"
+                },
+                {
+                    "property": [
+                        {
+                            "class": "nsg:Subject",
+                            "description": "The subject used",
+                            "maxCount": 1,
+                            "minCount": 1,
+                            "path": "prov:used"
+                        },
+                        {
+                            "class": "nsg:CellCulture",
+                            "description": "The cell culture generated",
+                            "minCount": 1,
+                            "path": "prov:generated"
+                        },
+                        {
+                            "description": "Brain location information",
+                            "name": "Brain location",
+                            "node": "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/brainlocation/v0.1.0/shapes/BrainLocationShape",
+                            "path": "nsg:brainLocation"
+                        },
+                        {
+                            "description": "Type of culture used",
+                            "in": [
+                                "Primary",
+                                "Secondary",
+                                "Cell line",
+                                "Microisland"
+                            ],
+                            "maxCount": 1,
+                            "name": "Culture type",
+                            "path": "nsg:cultureType"
+                        },
+                        {
+                            "description": "The age of the culture",
+                            "maxCount": 1,
+                            "name": "Culture age",
+                            "node": "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/quantitativevalue/v0.1.0/shapes/QuantitativeValueShape",
+                            "path": "nsg:cultureAge"
+                        },
+                        {
+                            "description": "Brain hemisphere that was sliced",
+                            "in": [
+                                "Left",
+                                "Right"
+                            ],
+                            "maxCount": 2,
+                            "name": "Hemisphere",
+                            "path": "nsg:hemisphere"
+                        },
+                        {
+                            "datatype": "xsd:string",
+                            "description": "Culture medium in which the culture was stored/grown",
+                            "maxCount": 1,
+                            "name": "Solution",
+                            "path": "nsg:solution"
+                        }
+                    ]
+                }
+            ],
+            "label": "Culturing shape definition",
+            "nodeKind": "sh:BlankNodeOrIRI",
+            "targetClass": "nsg:CulturingActivity"
+        }
+    ]
+}
