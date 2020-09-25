@@ -1,0 +1,72 @@
+{
+    "@context": [
+        "https://nexus.humanbrainproject.org/v0/contexts/neurosciencegraph/core/schema/v0.1.0",
+        {
+            "this": "https://nexus.humanbrainproject.org/v0/schemas/neuralactivity/core/protocol/v0.1.2/shapes/"
+        },
+        "https://nexus.humanbrainproject.org/v0/contexts/nexus/core/resource/v0.3.0"
+    ],
+    "@id": "https://nexus.humanbrainproject.org/v0/schemas/neuralactivity/core/protocol/v0.1.2",
+    "@type": "nxv:Schema",
+    "imports": [
+        "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/core/entity/v0.1.0",
+        "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/typedlabeledontologyterm/v0.1.0",
+        "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/quantitativevalue/v0.1.0"
+    ],
+    "shapes": [
+        {
+            "@id": "this:ProtocolShape",
+            "@type": "sh:NodeShape",
+            "and": [
+                {
+                    "node": "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/entity/v0.1.0/shapes/EntityShape"
+                },
+                {
+                    "property": [
+                        {
+                            "description": "The identifier of protocol such as a DOI, ISBN,...",
+                            "name": "Identifier",
+                            "node": "https://nexus.humanbrainproject.org/v0/schemas/nexus/schemaorgsh/identifier/v0.1.0/shapes/IdentifierShape",
+                            "path": "schema:identifier"
+                        },
+                        {
+                            "datatype": "xsd:dateTime",
+                            "description": "Publishing date of protocol.",
+                            "maxCount": 1,
+                            "name": "date published",
+                            "path": "schema:datePublished"
+                        },
+                        {
+                            "description": "Materials used in protocol",
+                            "name": "Materials",
+                            "node": "https://nexus.humanbrainproject.org/v0/schemas/neuralactivity/core/materials/v0.1.0/shapes/MaterialsShape",
+                            "path": "nsg:materials"
+                        },
+                        {
+                            "class": "schema:Organization",
+                            "description": "Name of vendor of protocol",
+                            "name": "Vendor",
+                            "path": "nsg:vendor"
+                        },
+                        {
+                            "datatype": "xsd:string",
+                            "description": "Steps of protocol",
+                            "name": "Steps",
+                            "path": "nsg:steps"
+                        },
+                        {
+                            "datatype": "xsd:string",
+                            "description": "Warning for protocol",
+                            "name": "Warning",
+                            "path": "nsg:warning"
+                        }
+                    ]
+                }
+            ],
+            "comment": "Protocol for experiment activity, stimulation",
+            "label": "Protocol shape definition",
+            "nodeKind": "sh:BlankNodeOrIRI",
+            "targetClass": "nsg:Protocol"
+        }
+    ]
+}

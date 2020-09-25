@@ -1,0 +1,56 @@
+{
+    "@context": [
+        "https://nexus.humanbrainproject.org/v0/contexts/neurosciencegraph/core/schema/v0.1.0",
+        {
+            "this": "https://nexus.humanbrainproject.org/v0/schemas/neuralactivity/optophysiology/position/v0.1.0/shapes/"
+        },
+        "https://nexus.humanbrainproject.org/v0/contexts/nexus/core/resource/v0.3.0"
+    ],
+    "@id": "https://nexus.humanbrainproject.org/v0/schemas/neuralactivity/optophysiology/position/v0.1.0",
+    "@type": "nxv:Schema",
+    "imports": [
+        "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/entity/v0.1.0",
+        "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/quantitativevalue/v0.1.0"
+    ],
+    "shapes": [
+        {
+            "@id": "this:PositionShape",
+            "@type": "sh:NodeShape",
+            "and": [
+                {
+                    "node": "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/entity/v0.1.0/shapes/EntityShape"
+                },
+                {
+                    "property": [
+                        {
+                            "in": [
+                                "centre",
+                                "bottom-left",
+                                "top-right"
+                            ],
+                            "maxCount": 1,
+                            "name": "Origin of the coordinate system",
+                            "path": "nsg:origin"
+                        },
+                        {
+                            "datatype": "xsd:double",
+                            "maxCount": 1,
+                            "name": "xcoordinate",
+                            "path": "nsg:x"
+                        },
+                        {
+                            "datatype": "xsd:double",
+                            "maxCount": 1,
+                            "name": "ycoordinate",
+                            "path": "nsg:y"
+                        }
+                    ]
+                }
+            ],
+            "description": "Position",
+            "label": "Position shape definition",
+            "nodeKind": "sh:BlankNodeOrIRI",
+            "targetClass": "nsg:Position"
+        }
+    ]
+}

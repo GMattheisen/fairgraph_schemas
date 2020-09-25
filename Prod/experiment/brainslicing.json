@@ -1,0 +1,17 @@
+{
+    "@context": [
+        {
+            "imports": {
+                "@id": "owl:imports",
+                "@type": "@id",
+                "@container": "@set"
+            },
+            "owl": "http://www.w3.org/2002/07/owl#"
+        },
+        "https://nexus.humanbrainproject.org/v0/contexts/nexus/core/resource/v0.3.0"
+    ],
+    "@id": "https://nexus.humanbrainproject.org/v0/schemas/neuralactivity/experiment/brainslicing/v0.1.0",
+    "imports": [
+        "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/experiment/brainslicing/v0.1.0"
+    ]
+}

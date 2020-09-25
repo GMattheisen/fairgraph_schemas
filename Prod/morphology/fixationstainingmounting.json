@@ -1,0 +1,68 @@
+{
+    "@context": [
+        "https://nexus.humanbrainproject.org/v0/contexts/neurosciencegraph/core/schema/v0.1.0",
+        {
+            "this": "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/morphology/fixationstainingmounting/v0.1.0/shapes/"
+        },
+        "https://nexus.humanbrainproject.org/v0/contexts/nexus/core/resource/v0.3.0"
+    ],
+    "@id": "https://nexus.humanbrainproject.org/v0/schemas/neuralactivity/morphology/fixationstainingmounting/v0.1.1",
+    "@type": "nxv:Schema",
+    "imports": [
+        "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/activity/v0.1.0",
+        "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/quantitativevalue/v0.1.0",
+        "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/typedlabeledontologyterm/v0.1.0",
+        "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/brainlocation/v0.1.0"
+    ],
+    "prov:wasDerivedFrom": "https://github.com/INCF/neuroshapes/blob/v0.3.15/modules/morphology/src/main/resources/schemas/neurosciencegraph/morphology/fixationstainingmounting/v1.0.0.json",
+    "shapes": [
+        {
+            "@id": "this:FixationStainingMountingShape",
+            "@type": "sh:NodeShape",
+            "and": [
+                {
+                    "node": "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/activity/v0.1.0/shapes/ActivityShape"
+                },
+                {
+                    "property": [
+                        {
+                            "datatype": "xsd:string",
+                            "description": "Method used for the fixation of the slice after electrophysiology such as PFA.",
+                            "maxCount": 1,
+                            "name": "Fixation method",
+                            "path": "nsg:fixationMethod"
+                        },
+                        {
+                            "datatype": "xsd:string",
+                            "description": "Stain used for the detection of the cell labeling compound such as the chromogen DAB.",
+                            "maxCount": 1,
+                            "name": "Stain",
+                            "path": "nsg:stain"
+                        },
+                        {
+                            "datatype": "xsd:string",
+                            "description": "Mounting media is the medium that the sample is in while it is being imaged on the microscope such as Xylene or Mowiol.",
+                            "maxCount": 1,
+                            "name": "Mounting Media",
+                            "path": "nsg:mountingMedia"
+                        },
+                        {
+                            "class": "nsg:Slice",
+                            "description": "The patched slices used",
+                            "path": "prov:used"
+                        },
+                        {
+                            "class": "nsg:FixedStainedSlice",
+                            "description": "The collection of fixed and stained slices generated",
+                            "minCount": 1,
+                            "path": "prov:generated"
+                        }
+                    ]
+                }
+            ],
+            "label": "Fixing, Staining and Mounting activities description",
+            "nodeKind": "sh:BlankNodeOrIRI",
+            "targetClass": "nsg:FixationStainingMounting"
+        }
+    ]
+}

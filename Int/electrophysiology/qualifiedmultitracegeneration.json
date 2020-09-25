@@ -1,0 +1,172 @@
+{
+    "@context": [
+        "https://nexus-int.humanbrainproject.org/v0/contexts/neurosciencegraph/core/schema/v0.1.0",
+        {
+            "this": "https://nexus-int.humanbrainproject.org/v0/schemas/neuralactivity/electrophysiology/multitracegeneration/v0.2.3/shapes/"
+        },
+        "https://nexus-int.humanbrainproject.org/v0/contexts/nexus/core/resource/v0.3.0"
+    ],
+    "@id": "https://nexus-int.humanbrainproject.org/v0/schemas/neuralactivity/electrophysiology/multitracegeneration/v0.2.3",
+    "@type": "nxv:Schema",
+    "imports": [
+        "https://nexus-int.humanbrainproject.org/v0/schemas/nexus/provsh/generation/v1.0.0",
+        "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/quantitativevalue/v0.1.0",
+        "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/typedlabeledontologyterm/v0.1.0"
+    ],
+    "shapes": [
+        {
+            "@id": "this:MultiTraceGenerationShape",
+            "@type": [
+                "sh:NodeShape"
+            ],
+            "and": [
+                {
+                    "node": "https://nexus-int.humanbrainproject.org/v0/schemas/nexus/provsh/generation/v1.0.0/shapes/GenerationShape"
+                },
+                {
+                    "property": [
+                        {
+                            "class": {
+                                "or": [
+                                    "nsg:MEGExperiment",
+                                    "nsg:StimulusExperiment"
+                                ]
+                            },
+                            "description": "Points at stimulus experiment activity that generated trace.",
+                            "maxCount": 1,
+                            "minCount": 1,
+                            "name": "Activity",
+                            "path": "prov:activity"
+                        },
+                        {
+                            "datatype": "xsd:string",
+                            "description": "Laboratory identifier of the experiment.",
+                            "maxCount": 1,
+                            "name": "Provider experiment ID",
+                            "path": "nsg:providerExperimentId"
+                        },
+                        {
+                            "datatype": "xsd:string",
+                            "description": "Laboratory name of the experiment.",
+                            "maxCount": 1,
+                            "name": "Provider experiment name",
+                            "path": "nsg:providerExperimentName"
+                        },
+                        {
+                            "datatype": "xsd:integer",
+                            "description": "Sweep number(s) of the trace(s).",
+                            "minCount": 1,
+                            "name": "Sweep(s)",
+                            "path": "nsg:sweep"
+                        },
+                        {
+                            "datatype": "xsd:integer",
+                            "description": "Repetition.",
+                            "maxCount": 1,
+                            "name": "Repetition",
+                            "path": "nsg:repetition"
+                        },
+                        {
+                            "description": "Target holding potential of patched cell.",
+                            "maxCount": 1,
+                            "name": "Target holding potential",
+                            "node": "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/quantitativevalue/v0.1.0/shapes/QuantitativeValueShape",
+                            "path": "nsg:targetHoldingPotential"
+                        },
+                        {
+                            "description": "Measured holding potential of patched cell.",
+                            "maxCount": 1,
+                            "name": "Measured holding potential",
+                            "node": "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/quantitativevalue/v0.1.0/shapes/RepeatedQuantitativeValueShape",
+                            "path": "nsg:measuredHoldingPotential"
+                        },
+                        {
+                            "description": "Input resistance of patched cell.",
+                            "maxCount": 1,
+                            "name": "Input resistance",
+                            "node": "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/quantitativevalue/v0.1.0/shapes/QuantitativeValueShape",
+                            "path": "nsg:inputResistance"
+                        },
+                        {
+                            "description": "Series resistance compensation while patching cell.",
+                            "maxCount": 1,
+                            "name": "Series resistance",
+                            "node": "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/quantitativevalue/v0.1.0/shapes/QuantitativeValueShape",
+                            "path": "nsg:seriesResistance"
+                        },
+                        {
+                            "description": "Compensation current for series resistance.",
+                            "maxCount": 1,
+                            "name": "Compensation current",
+                            "node": "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/quantitativevalue/v0.1.0/shapes/QuantitativeValueShape",
+                            "path": "nsg:compensationCurrent"
+                        },
+                        {
+                            "description": "Settings of analog-to-digital converter",
+                            "maxCount": 1,
+                            "name": "Analog-to-digital converter settings",
+                            "node": "this:ConverterShape",
+                            "path": "nsg:analogToDigitalConverter"
+                        },
+                        {
+                            "description": "Settings of digital-to-analog converter",
+                            "maxCount": 1,
+                            "name": "Digital-to-analog converter settings",
+                            "node": "this:DigitalToAnalogConverterShape",
+                            "path": "nsg:digitalToAnalogConverter"
+                        }
+                    ]
+                }
+            ],
+            "label": "Multi-channel, multi sweep/trial trace generation shape definition",
+            "nodeKind": "sh:BlankNodeOrIRI",
+            "targetClass": "nsg:MultiTraceGeneration"
+        },
+        {
+            "@id": "this:DigitalToAnalogConverterShape",
+            "@type": "sh:NodeShape",
+            "and": [
+                {
+                    "node": "this:ConverterShape"
+                },
+                {
+                    "property": [
+                        {
+                            "datatype": "xsd:float",
+                            "maxCount": 1,
+                            "minCount": 1,
+                            "name": "Scale",
+                            "path": "nsg:scale"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "@id": "this:ConverterShape",
+            "@type": "sh:NodeShape",
+            "property": [
+                {
+                    "maxCount": 1,
+                    "minCount": 1,
+                    "name": "Unit",
+                    "node": "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/typedlabeledontologyterm/v0.1.0/shapes/UnitOntologyTermShape",
+                    "path": "schema:unitCode"
+                },
+                {
+                    "datatype": "xsd:float",
+                    "maxCount": 1,
+                    "minCount": 1,
+                    "name": "Gain",
+                    "path": "nsg:gain"
+                },
+                {
+                    "description": "Name of the converter",
+                    "maxCount": 1,
+                    "name": "Name",
+                    "path": "schema:name"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,48 @@
+{
+    "@context": [
+        "https://nexus-int.humanbrainproject.org/v0/contexts/neurosciencegraph/core/schema/v0.1.0",
+        {
+            "this": "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/optophysiology/roiselection/v0.2.0/shapes/"
+        },
+        "https://nexus-int.humanbrainproject.org/v0/contexts/nexus/core/resource/v0.3.0"
+    ],
+    "@id": "https://nexus-int.humanbrainproject.org/v0/schemas/neuralactivity/optophysiology/roiselection/v0.2.0",
+    "@type": "nxv:Schema",
+    "imports": [
+        "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/entity/v0.1.0",
+        "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/quantitativevalue/v0.1.0"
+    ],
+    "shapes": [
+        {
+            "@id": "this:ROISelectionShape",
+            "@type": "sh:NodeShape",
+            "and": [
+                {
+                    "node": "https://neuroshapes.org/commons/activity/shapes/ActivityShape"
+                },
+                {
+                    "property": [
+                        {
+                            "class": "nsg:ImageSequence",
+                            "description": "The image sequence used",
+                            "minCount": 1,
+                            "name": "Image sequence",
+                            "path": "prov:used"
+                        },
+                        {
+                            "class": "nsg:RegionOfInterest",
+                            "description": "The ROIs generated",
+                            "minCount": 1,
+                            "name": "Regions",
+                            "path": "prov:generated"
+                        }
+                    ]
+                }
+            ],
+            "description": "Process of selecting regions of interest, may be manual, semi-automated, or fully automated.",
+            "label": "Region of interest selection shape definition",
+            "nodeKind": "sh:BlankNodeOrIRI",
+            "targetClass": "nsg:ROISelection"
+        }
+    ]
+}

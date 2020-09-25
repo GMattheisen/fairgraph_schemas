@@ -1,0 +1,65 @@
+{
+    "@context": [
+        "https://nexus.humanbrainproject.org/v0/contexts/neurosciencegraph/core/schema/v0.1.0",
+        {
+            "this": "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/morphology/reconstructedcell/v0.1.4/shapes/"
+        },
+        "https://nexus.humanbrainproject.org/v0/contexts/nexus/core/resource/v0.3.0"
+    ],
+    "@id": "https://nexus.humanbrainproject.org/v0/schemas/neuralactivity/morphology/reconstructedcell/v0.1.4",
+    "@type": "nxv:Schema",
+    "imports": [
+        "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/entity/v0.1.0",
+        "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/quantitativevalue/v0.1.0",
+        "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/typedlabeledontologyterm/v0.1.0",
+        "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/brainlocation/v0.1.0"
+    ],
+    "prov:wasDerivedFrom": "https://github.com/INCF/neuroshapes/blob/v0.3.15/modules/morphology/src/main/resources/schemas/neurosciencegraph/morphology/reconstructedcell/v0.1.2.json",
+    "shapes": [
+        {
+            "@id": "this:ReconstructedCellShape",
+            "@type": "sh:NodeShape",
+            "and": [
+                {
+                    "node": "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/entity/v0.1.0/shapes/EntityShape"
+                },
+                {
+                    "property": [
+                        {
+                            "description": "Axon projection of the reconstructed cell.",
+                            "name": "Axon projection",
+                            "node": "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/brainlocation/v0.1.0/shapes/BrainLocationShape",
+                            "path": "nsg:axonProjection"
+                        },
+                        {
+                            "description": "Brain Location (brain region, position In Layer, longitudinalAxis) of the reconstructed cell soma.",
+                            "maxCount": 1,
+                            "name": "Soma brain location",
+                            "node": "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/brainlocation/v0.1.0/shapes/BrainLocationShape",
+                            "path": "nsg:brainLocation"
+                        },
+                        {
+                            "description": "The morphology type of the reconstructed cell.",
+                            "maxCount": 1,
+                            "name": "Morphology type",
+                            "node": "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/typedlabeledontologyterm/v0.1.0/shapes/CellTypeOntologyTermShape",
+                            "path": "nsg:mType"
+                        },
+                        {
+                            "description": "Gives information on the type of soma of the reconstructed cell, values can be 3D or 2D contour, 1 point, 3 point.",
+                            "name": "Soma reconstruction type",
+                            "node": "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/typedlabeledontologyterm/v0.1.0/shapes/SomaTypeOntologyTermShape",
+                            "path": "nsg:somaReconstructionType"
+                        }
+                    ]
+                }
+            ],
+            "label": "Reconstructed cell shape definition",
+            "nodeKind": "sh:BlankNodeOrIRI",
+            "targetClass": [
+                "nsg:ReconstructedCell",
+                "nsg:ReconstructedNeuronMorphology"
+            ]
+        }
+    ]
+}

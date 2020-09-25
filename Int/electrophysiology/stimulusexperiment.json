@@ -1,0 +1,52 @@
+{
+    "@context": [
+        "https://nexus-int.humanbrainproject.org/v0/contexts/neurosciencegraph/core/schema/v0.1.0",
+        {
+            "this": "https://nexus-int.humanbrainproject.org/v0/schemas/neuralactivity/electrophysiology/stimulusexperiment/v0.3.1/shapes/"
+        },
+        "https://nexus-int.humanbrainproject.org/v0/contexts/nexus/core/resource/v0.3.0"
+    ],
+    "@id": "https://nexus-int.humanbrainproject.org/v0/schemas/neuralactivity/electrophysiology/stimulusexperiment/v0.3.1",
+    "@type": "nxv:Schema",
+    "imports": [
+        "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/activity/v0.1.0",
+        "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/typedlabeledontologyterm/v0.1.0"
+    ],
+    "shapes": [
+        {
+            "@id": "this:StimulusExperimentShape",
+            "@type": "sh:NodeShape",
+            "and": [
+                {
+                    "node": "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/activity/v0.1.0/shapes/ActivityShape"
+                },
+                {
+                    "property": [
+                        {
+                            "anyOf": [
+                                {
+                                    "class": "nsg:ImplantedBrainTissue",
+                                    "description": "The brain tissue recorded from"
+                                },
+                                {
+                                    "class": "nsg:PatchedCell",
+                                    "description": "The patched cell recorded from"
+                                },
+                                {
+                                    "class": "nsg:IntraCellularSharpElectrodeRecordedCell",
+                                    "description": "The cell recorded from"
+                                }
+                            ],
+                            "maxCount": 1,
+                            "minCount": 1,
+                            "path": "prov:used"
+                        }
+                    ]
+                }
+            ],
+            "label": "Stimulus experiment shape definition",
+            "nodeKind": "sh:BlankNodeOrIRI",
+            "targetClass": "nsg:StimulusExperiment"
+        }
+    ]
+}

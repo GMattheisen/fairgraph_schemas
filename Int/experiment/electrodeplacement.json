@@ -1,0 +1,53 @@
+{
+    "@context": [
+        "https://nexus-int.humanbrainproject.org/v0/contexts/neurosciencegraph/core/schema/v0.1.0",
+        {
+            "this": "https://nexus-int.humanbrainproject.org/v0/schemas/neuralactivity/experiment/electrodeplacement/v0.1.0/shapes/"
+        },
+        "https://nexus-int.humanbrainproject.org/v0/contexts/nexus/core/resource/v0.3.0"
+    ],
+    "@id": "https://nexus-int.humanbrainproject.org/v0/schemas/neuralactivity/experiment/electrodeplacement/v0.1.0",
+    "@type": "nxv:Schema",
+    "imports": [
+        "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/core/entity/v0.1.0",
+        "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/quantitativevalue/v0.1.0",
+        "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/brainlocation/v0.1.0"
+    ],
+    "shapes": [
+        {
+            "@id": "this:ElectrodeImplantationShape",
+            "@type": "sh:NodeShape",
+            "and": [
+                {
+                    "node": "https://neuroshapes.org/commons/activity/shapes/ActivityShape"
+                },
+                {
+                    "property": [
+                        {
+                            "class": "nsg:Subject",
+                            "description": "The subject used",
+                            "maxCount": 1,
+                            "minCount": 1,
+                            "path": "prov:used"
+                        },
+                        {
+                            "description": "Brain location information",
+                            "name": "Brain location",
+                            "node": "https://neuroshapes.org/commons/brainlocation/shapes/BrainLocationShape",
+                            "path": "nsg:brainLocation"
+                        },
+                        {
+                            "class": "nsg:Device",
+                            "description": "Device used for recording.",
+                            "name": "Device",
+                            "path": "nsg:device"
+                        }
+                    ]
+                }
+            ],
+            "label": "Electrode placement shape definition",
+            "nodeKind": "sh:BlankNodeOrIRI",
+            "targetClass": "nsg:ElectrodePlacement"
+        }
+    ]
+}

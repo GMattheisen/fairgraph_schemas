@@ -1,0 +1,110 @@
+{
+    "@context": [
+        "https://nexus-int.humanbrainproject.org/v0/contexts/neurosciencegraph/core/schema/v0.1.0",
+        {
+            "this": "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/optophysiology/twophotonimaging/v0.8.0/shapes/"
+        },
+        "https://nexus-int.humanbrainproject.org/v0/contexts/nexus/core/resource/v0.3.0"
+    ],
+    "@id": "https://nexus-int.humanbrainproject.org/v0/schemas/neuralactivity/optophysiology/twophotonimaging/v0.8.0",
+    "@type": "nxv:Schema",
+    "imports": [
+        "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/entity/v0.1.0",
+        "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/quantitativevalue/v0.1.0"
+    ],
+    "shapes": [
+        {
+            "@id": "this:TwoPhotonImagingShape",
+            "@type": "sh:NodeShape",
+            "and": [
+                {
+                    "node": "https://neuroshapes.org/commons/activity/shapes/ActivityShape"
+                },
+                {
+                    "property": [
+                        {
+                            "class": {
+                                "or": [
+                                    "nsg:Slice",
+                                    "nsg:CranialWindow"
+                                ]
+                            },
+                            "description": "Cranial window or slice used for two-photon imaging",
+                            "name": "Target",
+                            "path": "prov:used"
+                        },
+                        {
+                            "class": "nsg:ImageSequence",
+                            "description": "The image sequence recorded",
+                            "minCount": 1,
+                            "name": "Image sequence",
+                            "path": "prov:generated"
+                        },
+                        {
+                            "datatype": "xsd:string",
+                            "description": "Microscope used for two-photon imaging",
+                            "name": "Microscope",
+                            "path": "nsg:microscope"
+                        },
+                        {
+                            "datatype": "xsd:string",
+                            "description": "The state of consciousness of the subject during the procedure.",
+                            "in": [
+                                "awake",
+                                "anesthetized"
+                            ],
+                            "name": "Brain state",
+                            "path": "nsg:brainState"
+                        },
+                        {
+                            "datatype": "xsd:string",
+                            "description": "Anaesthesia used during the procedure, if any.",
+                            "name": "Anesthesia",
+                            "path": "nsg:anesthesia"
+                        },
+                        {
+                            "datatype": "xsd:string",
+                            "description": "Laser used for two-photon imaging.",
+                            "name": "Laser",
+                            "path": "nsg:laser"
+                        },
+                        {
+                            "description": "Wavelength produced by the laser.",
+                            "name": "Excitation wavelength",
+                            "node": "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/quantitativevalue/v0.1.2/shapes/QuantitativeValueShapee",
+                            "path": "nsg:excitationWavelength"
+                        },
+                        {
+                            "description": "Laser power at microscope objective.",
+                            "name": "Power at objective",
+                            "node": "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/quantitativevalue/v0.1.2/shapes/QuantitativeValueShape",
+                            "path": "nsg:laserpower"
+                        },
+                        {
+                            "description": "Wavelength detected by photomultiplier tube.",
+                            "name": "Collection wavelength",
+                            "node": "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/quantitativevalue/v0.1.2/shapes/QuantitativeValueShape",
+                            "path": "nsg:collectionWavelength"
+                        },
+                        {
+                            "description": "Depth of imaging plane below brain surface.",
+                            "name": "Imaging depth",
+                            "node": "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/quantitativevalue/v0.1.2/shapes/QuantitativeValueShape",
+                            "path": "nsg:imagingDepth"
+                        },
+                        {
+                            "class": "nsg:Stimulus",
+                            "description": "The stimulus",
+                            "node": "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/stimulation/stimulus/v0.1.2/shapes/StimulusShape",
+                            "path": "nsg:Stimulus"
+                        }
+                    ]
+                }
+            ],
+            "description": "Two photon imaging",
+            "label": "Two photon imaging shape definition",
+            "nodeKind": "sh:BlankNodeOrIRI",
+            "targetClass": "nsg:TwoPhotonImaging"
+        }
+    ]
+}

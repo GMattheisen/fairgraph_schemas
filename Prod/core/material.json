@@ -1,0 +1,75 @@
+{
+    "@context": [
+        "https://nexus.humanbrainproject.org/v0/contexts/neurosciencegraph/core/schema/v0.1.0",
+        {
+            "this": "https://nexus.humanbrainproject.org/v0/schemas/neuralactivity/core/material/v0.1.0/shapes/"
+        },
+        "https://nexus.humanbrainproject.org/v0/contexts/nexus/core/resource/v0.3.0"
+    ],
+    "@id": "https://nexus.humanbrainproject.org/v0/schemas/neuralactivity/core/material/v0.1.0",
+    "@type": "nxv:Schema",
+    "imports": [
+        "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/entity/v0.1.0",
+        "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/quantitativevalue/v0.1.0",
+        "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/typedlabeledontologyterm/v0.1.0"
+    ],
+    "shapes": [
+        {
+            "@id": "this:MaterialShape",
+            "@type": "sh:NodeShape",
+            "and": [
+                {
+                    "node": "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/entity/v0.1.0/shapes/EntityShape"
+                },
+                {
+                    "property": [
+                        {
+                            "datatype": "xsd:string",
+                            "description": "Name of reagent/material used",
+                            "maxCount": 1,
+                            "name": "Reagent name",
+                            "path": "nsg:reagentName"
+                        },
+                        {
+                            "description": "Molar weight of reagent",
+                            "maxCount": 1,
+                            "name": "Reagent molar weight",
+                            "node": "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/quantitativevalue/v0.1.2/shapes/QuantitativeValueShape",
+                            "path": "nsg:reagentMolarWeight"
+                        },
+                        {
+                            "datatype": "xsd:string",
+                            "description": "Linear formula of reagent",
+                            "maxCount": 1,
+                            "name": "Reagent linear formula",
+                            "path": "nsg:reagentLinearFormula"
+                        },
+                        {
+                            "datatype": "xsd:string",
+                            "description": "Stock keeping unit of reagent/material",
+                            "maxCount": 1,
+                            "name": "Reagent SKU",
+                            "path": "schema:sku"
+                        },
+                        {
+                            "datatype": "xsd:string",
+                            "description": "URL of reagent/material",
+                            "maxCount": 1,
+                            "name": "Reagent URL",
+                            "path": "nsg:reagentURL"
+                        },
+                        {
+                            "class": "schema:Organization",
+                            "description": "Name of vendor of reagent",
+                            "name": "Reagent vendor",
+                            "path": "nsg:reagentVendor"
+                        }
+                    ]
+                }
+            ],
+            "label": "Material shape definition",
+            "nodeKind": "sh:BlankNodeOrIRI",
+            "targetClass": "nsg:Material"
+        }
+    ]
+}

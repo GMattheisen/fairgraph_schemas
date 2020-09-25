@@ -1,0 +1,59 @@
+{
+    "@context": [
+        "https://nexus-int.humanbrainproject.org/v0/contexts/neurosciencegraph/core/schema/v0.1.0",
+        {
+            "this": "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/morphology/acquisitionannotation/v0.1.1/shapes/"
+        },
+        "https://nexus-int.humanbrainproject.org/v0/contexts/nexus/core/resource/v0.3.0"
+    ],
+    "@id": "https://nexus-int.humanbrainproject.org/v0/schemas/neuralactivity/morphology/acquisitionannotation/v0.1.1",
+    "@type": "nxv:Schema",
+    "imports": [
+        "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/activity/v0.1.0",
+        "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/quantitativevalue/v0.1.0",
+        "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/typedlabeledontologyterm/v0.1.0",
+        "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/brainlocation/v0.1.0"
+    ],
+    "prov:wasDerivedFrom": "https://github.com/INCF/neuroshapes/blob/v0.3.15/modules/morphology/src/main/resources/schemas/neurosciencegraph/morphology/acquisitionannotation/v0.1.0.json",
+    "shapes": [
+        {
+            "@id": "this:AcquisitionAnnotationShape",
+            "@type": "sh:NodeShape",
+            "and": [
+                {
+                    "node": "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/activity/v0.1.0/shapes/ActivityShape"
+                },
+                {
+                    "property": [
+                        {
+                            "datatype": "xsd:string",
+                            "description": "Objective magnification used to acquire the slice images.",
+                            "maxCount": 1,
+                            "name": "Objective magnification",
+                            "path": "nsg:objectiveMagnification"
+                        },
+                        {
+                            "class": "nsg:FixedStainedSlice",
+                            "description": "The fixed and stained slice used",
+                            "maxCount": 1,
+                            "minCount": 1,
+                            "node": "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/morphology/fixedstainedslice/v0.1.1/shapes/FixedStainedSliceShape",
+                            "path": "prov:used"
+                        },
+                        {
+                            "class": "nsg:AnnotatedSlice",
+                            "description": "The annotated slice generated.",
+                            "maxCount": 1,
+                            "minCount": 1,
+                            "node": "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/morphology/annotatedslice/v0.1.1/shapes/AnnotatedSliceShape",
+                            "path": "prov:generated"
+                        }
+                    ]
+                }
+            ],
+            "label": "Acquisition and annotation shape definition",
+            "nodeKind": "sh:BlankNodeOrIRI",
+            "targetClass": "nsg:AcquisitionAnnotation"
+        }
+    ]
+}

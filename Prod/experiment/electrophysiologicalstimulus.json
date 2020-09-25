@@ -1,0 +1,47 @@
+{
+    "@context": [
+        "https://nexus.humanbrainproject.org/v0/contexts/neurosciencegraph/core/schema/v0.1.0",
+        {
+            "this": "https://nexus.humanbrainproject.org/v0/schemas/neuralactivity/experiment/electrophysiologicalstimulus/v0.1.0/shapes/"
+        },
+        "https://nexus.humanbrainproject.org/v0/contexts/nexus/core/resource/v0.3.0"
+    ],
+    "@id": "https://nexus.humanbrainproject.org/v0/schemas/neuralactivity/experiment/electrophysiologicalstimulus/v0.1.0",
+    "@type": "nxv:Schema",
+    "imports": [
+        "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/core/entity/v0.1.0"
+    ],
+    "shapes": [
+        {
+            "@id": "this:ElectrophysiologicalStimulusShape",
+            "@type": "sh:NodeShape",
+            "and": [
+                {
+                    "node": "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/entity/v0.1.0/shapes/EntityShape"
+                },
+                {
+                    "property": [
+                        {
+                            "datatype": "xsd:string",
+                            "description": "Any additional information about the window that does not fit elsewhere.",
+                            "maxCount": 1,
+                            "name": "Description",
+                            "path": "nsg:description"
+                        },
+                        {
+                            "datatype": "xsd:string",
+                            "description": "Download location of a file containing additional stimulus information.",
+                            "maxCount": 1,
+                            "name": "Distribution",
+                            "path": "nsg:distribution"
+                        }
+                    ]
+                }
+            ],
+            "description": "A generic electrophysiological stimulus definition",
+            "label": "A generic electrophysiological stimulus shape definition",
+            "nodeKind": "sh:BlankNodeOrIRI",
+            "targetClass": "nsg:ElectrophysiologicalStimulus"
+        }
+    ]
+}

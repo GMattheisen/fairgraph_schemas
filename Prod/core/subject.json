@@ -1,0 +1,152 @@
+{
+    "@context": [
+        "https://nexus.humanbrainproject.org/v0/contexts/neurosciencegraph/core/schema/v0.1.0",
+        {
+            "this": "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/core/subject/v0.1.2/shapes/"
+        },
+        "https://nexus.humanbrainproject.org/v0/contexts/nexus/core/resource/v0.3.0"
+    ],
+    "@id": "https://nexus.humanbrainproject.org/v0/schemas/neuralactivity/core/subject/v0.1.2",
+    "@type": "nxv:Schema",
+    "imports": [
+        "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/core/entity/v0.1.0",
+        "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/typedlabeledontologyterm/v0.1.0",
+        "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/quantitativevalue/v0.1.0"
+    ],
+    "shapes": [
+        {
+            "@id": "this:SubjectShape",
+            "@type": "sh:NodeShape",
+            "and": [
+                {
+                    "node": "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/entity/v0.1.0/shapes/EntityShape"
+                },
+                {
+                    "property": [
+                        {
+                            "description": "The species of the subject",
+                            "maxCount": 1,
+                            "minCount": 1,
+                            "name": "Species",
+                            "node": "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/typedlabeledontologyterm/v0.1.0/shapes/SpeciesOntologyTermShape",
+                            "path": "nsg:species"
+                        },
+                        {
+                            "description": "Subject strain",
+                            "maxCount": 1,
+                            "name": "Strain",
+                            "node": "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/typedlabeledontologyterm/v0.1.0/shapes/StrainOntologyTermShape",
+                            "path": "nsg:strain"
+                        },
+                        {
+                            "description": "Transgenic modification of subject",
+                            "maxCount": 1,
+                            "name": "Transgenic",
+                            "node": "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/typedlabeledontologyterm/v0.1.0/shapes/TransgenicOntologyTermShape",
+                            "path": "nsg:transgenic"
+                        },
+                        {
+                            "description": "The sex of the subject",
+                            "maxCount": 1,
+                            "name": "Sex",
+                            "node": "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/typedlabeledontologyterm/v0.1.0/shapes/SexOntologyTermShape",
+                            "path": "nsg:sex"
+                        },
+                        {
+                            "description": "The age of the subject.",
+                            "maxCount": 1,
+                            "name": "Age",
+                            "node": "this:AgeShape",
+                            "path": "nsg:age"
+                        },
+                        {
+                            "datatype": "xsd:dateTime",
+                            "description": "Date of birth of subject.",
+                            "lessThan": "schema:deathDate",
+                            "maxCount": 1,
+                            "name": "Date of birth",
+                            "path": "schema:birthDate"
+                        },
+                        {
+                            "datatype": "xsd:dateTime",
+                            "description": "Date of sacrifice of subject.",
+                            "maxCount": 1,
+                            "name": "Date of sacrifice",
+                            "path": "schema:deathDate"
+                        },
+                        {
+                            "datatype": "xsd:dateTime",
+                            "description": "Date of surgery of subject.",
+                            "maxCount": 1,
+                            "name": "Date of surgery",
+                            "path": "nsg:dateOfSurgery"
+                        },
+                        {
+                            "description": "Disease modeled in subject.",
+                            "maxCount": 1,
+                            "name": "Disease",
+                            "node": "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/typedlabeledontologyterm/v0.1.0/shapes/DiseaseModelOntologyTermShape",
+                            "path": "nsg:diseaseModel"
+                        },
+                        {
+                            "description": "Disease of subject.",
+                            "maxCount": 1,
+                            "name": "Disease",
+                            "node": "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/typedlabeledontologyterm/v0.1.0/shapes/DiseaseOntologyTermShape",
+                            "path": "nsg:disease"
+                        },
+                        {
+                            "description": "Treatment of the subject.",
+                            "maxCount": 1,
+                            "name": "Treatment",
+                            "node": "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/typedlabeledontologyterm/v0.1.0/shapes/TreatmentOntologyTermShape",
+                            "path": "nsg:treatment"
+                        },
+                        {
+                            "description": "Weight of the subject.",
+                            "maxCount": 1,
+                            "name": "Weight",
+                            "node": "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/quantitativevalue/v0.1.0/shapes/QuantitativeValueShape",
+                            "path": "schema:weight"
+                        }
+                    ]
+                }
+            ],
+            "comment": "Subject used in experiment",
+            "label": "Subject shape definition",
+            "nodeKind": "sh:BlankNodeOrIRI",
+            "targetClass": "nsg:Subject"
+        },
+        {
+            "@id": "this:AgeShape",
+            "@type": "sh:NodeShape",
+            "property": [
+                {
+                    "in": [
+                        "Pre-natal",
+                        "Post-natal"
+                    ],
+                    "maxCount": 1,
+                    "minCount": 1,
+                    "name": "Period",
+                    "path": "nsg:period"
+                },
+                {
+                    "maxCount": 1,
+                    "minCount": 1,
+                    "path": "schema:value",
+                    "xone": [
+                        {
+                            "name": "Age value",
+                            "node": "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/quantitativevalue/v0.1.0/shapes/QuantitativeValueShape"
+                        },
+                        {
+                            "name": "Age range",
+                            "node": "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/quantitativevalue/v0.1.0/shapes/RangeQuantitativeValueShape"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

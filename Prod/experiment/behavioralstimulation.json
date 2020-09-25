@@ -1,0 +1,42 @@
+{
+    "@context": [
+        "https://nexus.humanbrainproject.org/v0/contexts/neurosciencegraph/core/schema/v0.1.0",
+        {
+            "this": "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/experiment/behavioralstimulation/v0.1.0/shapes/"
+        },
+        "https://nexus.humanbrainproject.org/v0/contexts/nexus/core/resource/v0.3.0"
+    ],
+    "@id": "https://nexus.humanbrainproject.org/v0/schemas/neuralactivity/experiment/behavioralstimulation/v0.1.1",
+    "@type": "nxv:Schema",
+    "imports": [
+        "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/entity/v0.1.0",
+        "https://nexus.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/quantitativevalue/v0.1.0"
+    ],
+    "shapes": [
+        {
+            "@id": "this:BehavioralStimulationShape",
+            "@type": "sh:NodeShape",
+            "and": [
+                {
+                    "node": "https://neuroshapes.org/commons/activity/shapes/ActivityShape"
+                },
+                {
+                    "property": [
+                        {
+                            "class": "nsg:BehavioralStimulus",
+                            "description": "Behavioral stimulus used for behavioral stimulation",
+                            "minCount": 1,
+                            "name": "Behavioral Stimulus",
+                            "node": "https://nexus.humanbrainproject.org/v0/schemas/neuralactivity/experiment/behavioralstimulus/v0.1.0/shapes/",
+                            "path": "prov:used"
+                        }
+                    ]
+                }
+            ],
+            "description": "Behavioral stimulation",
+            "label": "Behavioral stimulation shape definition",
+            "nodeKind": "sh:BlankNodeOrIRI",
+            "targetClass": "nsg:BehavioralStimulation"
+        }
+    ]
+}
