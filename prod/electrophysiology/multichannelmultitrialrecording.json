@@ -76,9 +76,8 @@
                         {
                             "class": {
                                 "or": [
-                                    "nsg:StimulusExperiment",
-                                    "nsg:MEGExperiment"
-                                ]
+                                    "nsg:StimulusExperiment"
+                                    ]
                             },
                             "description": "Stimulus experiment that generated trace",
                             "maxCount": 1,

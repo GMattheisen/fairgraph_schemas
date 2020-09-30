@@ -2,7 +2,7 @@
     "@context": [
         "https://nexus-int.humanbrainproject.org/v0/contexts/neurosciencegraph/core/schema/v0.1.0",
         {
-            "this": "https://nexus-int.humanbrainproject.org/v0/schemas/neuralactivity/electrophysiology/device/v0.1.1/shapes/"
+            "this": "https://nexus-int.humanbrainproject.org/v0/schemas/neuralactivity/electrophysiology/device/v0.1.2/shapes/"
         },
         "https://nexus-int.humanbrainproject.org/v0/contexts/nexus/core/resource/v0.3.0"
     ],
@@ -25,7 +25,7 @@
                     "property": [
                         {
                             "datatype": "xsd:string",
-                            "description": "Device used in data acquistion.",
+                            "description": "Name of device used in data acquistion.",
                             "maxCount": 1,
                             "name": "Device name",
                             "path": "nsg:deviceName"

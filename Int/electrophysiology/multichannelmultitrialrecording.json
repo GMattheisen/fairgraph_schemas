@@ -2,11 +2,11 @@
     "@context": [
         "https://nexus-int.humanbrainproject.org/v0/contexts/neurosciencegraph/core/schema/v0.1.0",
         {
-            "this": "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/electrophysiology/multitrace/v0.3.1/shapes/"
+            "this": "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/electrophysiology/multitrace/v0.3.2/shapes/"
         },
         "https://nexus-int.humanbrainproject.org/v0/contexts/nexus/core/resource/v0.3.0"
     ],
-    "@id": "https://nexus-int.humanbrainproject.org/v0/schemas/neuralactivity/electrophysiology/multitrace/v0.3.1",
+    "@id": "https://nexus-int.humanbrainproject.org/v0/schemas/neuralactivity/electrophysiology/multitrace/v0.3.2",
     "@type": "nxv:Schema",
     "imports": [
         "https://nexus-int.humanbrainproject.org/v0/schemas/neurosciencegraph/commons/entity/v0.1.0",
@@ -76,9 +76,7 @@
                         {
                             "class": {
                                 "or": [
-                                    "nsg:StimulusExperiment",
-                                    "nsg:MEGExperiment"
-                                ]
+                                    "nsg:StimulusExperiment"                                ]
                             },
                             "description": "Stimulus experiment that generated trace",
                             "maxCount": 1,

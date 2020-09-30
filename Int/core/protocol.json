@@ -39,7 +39,7 @@
                         {
                             "description": "Materials used in protocol",
                             "name": "Materials",
-                            "node": "https://nexus-int.humanbrainproject.org/v0/schemas/neuralactivity/core/materials/v0.1.0/shapes/MaterialsShape",
+                            "node": "https://nexus-int.humanbrainproject.org/v0/schemas/neuralactivity/core/materials/v0.1.2/shapes/MaterialsShape",
                             "path": "nsg:materials"
                         },
                         {
